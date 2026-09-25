@@ -3,14 +3,16 @@
 DDL Script: Create Silver Tables
 ===================================================================================================
 Script Purpose:
-    This script creates table in the 'Silver Schema, 
+    This script creates table in the 'Silver' Schema, 
     dropping existing tables if they already exist. 
-    Run this script to re-define the DDL Structure of 'Silver' Tables.
+    Run this script to re-define the DDL Structure of 'Bronze' Tables.
 ===================================================================================================
 */
 
 if OBJECT_ID ('silver.crm_cust_info','U') is not null
 	drop table silver.crm_cust_info;
+Go
+
 Create Table silver.crm_cust_info (
 	cst_id int,
 	cst_key nvarchar(50),
@@ -21,6 +23,8 @@ Create Table silver.crm_cust_info (
 	cst_create_date date,
 	dwh_create_date datetime2 default getdate()
 );
+
+Go
 
 if OBJECT_ID ('silver.crm_prd_info','U') is not null
 	drop table silver.crm_prd_info;
@@ -35,6 +39,8 @@ Create Table silver.crm_prd_info (
 	prd_end_dt date,
 	dwh_create_date datetime2 default getdate()
 );
+
+Go
 
 if OBJECT_ID ('silver.crm_sales_details','U') is not null
 	drop table silver.crm_sales_details;
@@ -51,6 +57,8 @@ Create Table silver.crm_sales_details (
 	dwh_create_date datetime2 default getdate()
 );
 
+Go
+
 if OBJECT_ID ('silver.erp_loc_a101','U') is not null
 	drop table silver.erp_loc_a101;
 Create Table silver.erp_loc_a101 (
@@ -58,6 +66,8 @@ Create Table silver.erp_loc_a101 (
 	cntry nvarchar (50),
 	dwh_create_date datetime2 default getdate()
 );
+
+Go
 
 if OBJECT_ID ('silver.erp_cust_az12','U') is not null
 	drop table silver.erp_cust_az12;
@@ -67,6 +77,8 @@ Create Table silver.erp_cust_az12 (
 	gen nvarchar(50),
 	dwh_create_date datetime2 default getdate()
 );
+
+Go
 
 if OBJECT_ID ('silver.erp_px_cat_g1v2','U') is not null
 	drop table silver.erp_px_cat_g1v2;
