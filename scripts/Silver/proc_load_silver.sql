@@ -225,13 +225,13 @@ begin
 
 		set @batch_end_time = GETDATE();
 		print '========================================='
-		print 'Loading Bronze Layer is Completed';
+		print 'Loading Silver Layer is Completed';
 		print ' - Total Load Duration: ' + Cast(datediff(second, @batch_start_time, @batch_end_time) as nvarchar) + 'seconds';
 		print '========================================='
 		End try
 		Begin catch
 			Print '=============================================='
-			Print 'Error Occured during Bronze Layer Load'
+			Print 'Error Occured during Silver Layer Load'
 			Print 'Error Message' + Error_message();
 			Print 'Error Message' + Cast(Error_number() as nvarchar);
 			Print 'Error Message' + Cast(Error_state() as nvarchar);
